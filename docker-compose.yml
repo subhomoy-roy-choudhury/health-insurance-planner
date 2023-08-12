@@ -1,9 +1,16 @@
-# docker-compose.yaml
 version: '3'
-
 services:
+  frontend:
+    build:
+      context: ./health-insurance-planner-frontend
+    # Add any other configuration specific to your frontend service
+    ports:
+      - 3001:3000
+
   backend:
-    build: './backend'
+    build:
+      context: ./health-insurance-planner-backend
+    # Add any other configuration specific to your backend service
     ports:
       - '5001:5000'
     environment:

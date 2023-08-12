@@ -1,0 +1,3 @@
+[submodule "health-insurance-planner-backend"]
+	path = health-insurance-planner-backend
+	url = https://github.com/subhomoy-roy-choudhury/health-insurance-planner-backend.git

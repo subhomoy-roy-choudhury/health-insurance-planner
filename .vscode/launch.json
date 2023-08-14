@@ -9,8 +9,9 @@
             "type": "python",
             "request": "launch",
             "module": "flask",
+            "cwd": "${workspaceFolder}/health-insurance-planner-backend",
             "env": {
-                "FLASK_APP": "backend.app",
+                "FLASK_APP": "app.app:app",
                 "FLASK_DEBUG": "1"
             },
             "args": [
@@ -19,6 +20,21 @@
                 "--no-reload"
             ],
             "jinja": true,
+            "justMyCode": true
+        },
+        {
+            "name": "Python: Setup DB",
+            "type": "python",
+            "request": "launch",
+            "module": "flask",
+            "cwd": "${workspaceFolder}/health-insurance-planner-backend",
+            "env": {
+                "FLASK_APP": "app.app:app",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "initdb"
+            ],
             "justMyCode": true
         }
     ]

@@ -11,8 +11,12 @@ services:
     build:
       context: ./health-insurance-planner-backend
     # Add any other configuration specific to your backend service
+    networks:
+      - backend-conn
     ports:
       - '5001:5000'
+    depends_on:
+      - mongodb
     environment:
       - PORT=5000
 
@@ -21,10 +25,13 @@ services:
     container_name: mongodb
     restart: unless-stopped
     command: mongod --auth
+    hostname: mongodb
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
       MONGO_INITDB_DATABASE: health_insurance_planner
+    networks:
+      - backend-conn
     ports:
       - '27020:27017'
     volumes:
@@ -32,3 +39,8 @@ services:
 
 volumes:
   mongodb_data:
+
+
+networks:
+  backend-conn:
+    driver: bridge
